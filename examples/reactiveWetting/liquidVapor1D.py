@@ -108,12 +108,12 @@ Eqs. :eq:`eq:reactiveWetting:liquidVapor1D:freeEnergy`,
 
 The equilibrium densities values are verified with
 
->>> print numerix.allclose(mu(liquidDensity), mu(vaporDensity))
+>>> print(numerix.allclose(mu(liquidDensity), mu(vaporDensity)))
 True
 
 and
 
->>> print numerix.allclose(P(liquidDensity), P(vaporDensity))
+>>> print(numerix.allclose(P(liquidDensity), P(vaporDensity)))
 True
 
 In order to derive governing equations, the free energy functional is defined.
@@ -283,7 +283,7 @@ Viewers are also defined.
 ...     viewers = Viewer(density), Viewer(velocity), Viewer(potentialNC)
 ...     for viewer in viewers:
 ...         viewer.plot()
-...     raw_input('arrange viewers')
+...     input('arrange viewers')
 ...     for viewer in viewers:
 ...         viewer.plot()
 
@@ -318,50 +318,50 @@ equation. This currently doesn't work properly in :term:`FiPy`.
 ...     density.updateOld()
 ...     velocity.updateOld()
 ...     matrixDiagonal.updateOld()
-...
+... 
 ...     while residual > tolerance:
-...
+... 
 ...         densityPrevious[:] = density
 ...         velocityPrevious[:] = velocity
 ...         previousResidual = residual
-...
+... 
 ...         dt = min(dt, dx / max(abs(velocity)) * cfl)
 ...         
 ...         coupledEqn.cacheMatrix()
 ...         residual = coupledEqn.sweep(dt=dt)
-...
+... 
 ...         if initialResidual is None:
 ...             initialResidual = residual
-...
+... 
 ...         residual = residual / initialResidual
-...
+... 
 ...         if residual > previousResidual * 1.1 or sweep > 20:
 ...             density[:] = density.old
 ...             velocity[:] = velocity.old
 ...             matrixDiagonal[:] = matrixDiagonal.old
 ...             dt = dt / 10.
 ...             if __name__ == '__main__':
-...                 print 'Recalculate the time step'
+...                 print('Recalculate the time step')
 ...             timestep -= 1
 ...             break
 ...         else:
 ...             matrixDiagonal[:] = coupledEqn.matrix.takeDiagonal()[mesh.numberOfCells:2 * mesh.numberOfCells]
 ...             density[:] = relaxation * density + (1 - relaxation) * densityPrevious
 ...             velocity[:] = relaxation * velocity + (1 - relaxation) * velocityPrevious
-...
+... 
 ...         sweep += 1
-...
+... 
 ...     if __name__ == '__main__' and timestep % 10 == 0:
-...         print 'timestep: %i, dt: %1.5e, free energy: %1.5e' % (timestep, dt, freeEnergy)
+...         print('timestep: %i, dt: %1.5e, free energy: %1.5e' % (timestep, dt, freeEnergy))
 ...         for viewer in viewers:
 ...             viewer.plot()
-...
+... 
 ...     timestep += 1
 
 >>> if __name__ == '__main__':
-...     raw_input('finished')
+...     input('finished')
 
->>> print freeEnergy < 1.5e9
+>>> print(freeEnergy < 1.5e9)
 True
 
 .. .. bibmissing:: /documentation/refs.bib
@@ -373,3 +373,4 @@ __docformat__ = 'restructuredtext'
 if __name__ == '__main__':
     import fipy.tests.doctestPlus
     exec(fipy.tests.doctestPlus._getScript())
+

@@ -143,7 +143,7 @@ evolution of their problem.
 ...         viewer.plot()
 
 >>> if __name__ == '__main__':
-...     raw_input("Coupled equations. Press <return> to proceed...")
+...     input("Coupled equations. Press <return> to proceed...")
 
 .. image:: mesh2D.*
    :width: 90%
@@ -194,7 +194,7 @@ a vector format.
 ...     if __name__ == "__main__":
 ...         viewer.plot()
 
->>> print numerix.allclose(var, (phi, psi))
+>>> print(numerix.allclose(var, (phi, psi)))
 True
 
 """
@@ -204,6 +204,7 @@ if __name__ == '__main__':
     import fipy.tests.doctestPlus
     exec(fipy.tests.doctestPlus._getScript())
     
-    raw_input('finished')
+    input('finished')
+
 
 

@@ -35,7 +35,7 @@
 r"""
 Test
 
->>> print (0.4 < max(q.globalValue[0]) < 0.5)
+>>> print((0.4 < max(q.globalValue[0]) < 0.5))
 True
 
 """
@@ -68,16 +68,17 @@ if  __name__ == '__main__':
     from fipy import MatplotlibViewer as Viewer
     vi = Viewer((q[0], q[1]))
     vi.plot()
-    raw_input('press key')
+    input('press key')
     
 for step in range(500):
     eqn.solve(q, dt=cfl * dx)
     if step % 10 ==  0 and  __name__ == '__main__':
-        print 'step',step
+        print('step',step)
         vi.plot()
 
 if __name__ == '__main__':
     import fipy.tests.doctestPlus
     exec(fipy.tests.doctestPlus._getScript())
 
-    raw_input('finished')
+    input('finished')
+

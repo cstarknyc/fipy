@@ -82,5 +82,5 @@ if __name__ == '__main__':
     viewer.plot()
     NOViewer.plot()
 
-    raw_input("finished")
+    input("finished")
 

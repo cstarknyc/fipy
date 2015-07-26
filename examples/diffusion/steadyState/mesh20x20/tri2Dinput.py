@@ -43,7 +43,7 @@ The result is again tested in the same way:
     >>> Lx = nx * dx
     >>> x = mesh.cellCenters[0]
     >>> analyticalArray = valueLeft + (valueRight - valueLeft) * x / Lx
-    >>> print var.allclose(analyticalArray, rtol = 1e-8)
+    >>> print(var.allclose(analyticalArray, rtol = 1e-8))
     1
 
 """
@@ -71,4 +71,5 @@ if __name__ == '__main__':
     DiffusionTerm().solve(var)
     viewer = Viewer(vars = var)
     viewer.plot()
-    raw_input("finished")
+    input("finished")
+

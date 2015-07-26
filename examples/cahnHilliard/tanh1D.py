@@ -170,16 +170,16 @@ we update the display and output data about the progression of the solution
 ...     if __name__ == '__main__':
 ...         diff = abs(answer - array(var))
 ...         maxarg = argmax(diff)
-...         print 'maximum error:',diff[maxarg]
-...         print 'element id:',maxarg
-...         print 'value at element ',maxarg,' is ',var[maxarg]
-...         print 'solution value',answer[maxarg]
+...         print('maximum error:',diff[maxarg])
+...         print('element id:',maxarg)
+...         print('value at element ',maxarg,' is ',var[maxarg])
+...         print('solution value',answer[maxarg])
 ... 
 ...         viewer.plot()
 
 We compare the analytical solution with the numerical result,
 
->>> print var.allclose(answer, atol=1e-4)
+>>> print(var.allclose(answer, atol=1e-4))
 1
 
 """
@@ -189,6 +189,7 @@ if __name__ == '__main__':
     import fipy.tests.doctestPlus
     exec(fipy.tests.doctestPlus._getScript())
     
-    raw_input('finished')
+    input('finished')
+
 
 

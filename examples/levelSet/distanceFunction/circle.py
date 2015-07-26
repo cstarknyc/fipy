@@ -111,7 +111,7 @@ The result can be tested with the following commands.
 ...     MASK,  MASK, MASK, MASK, MASK, MASK, MASK, MASK, MASK, MASK, MASK), 'd'))
 
 >>> var[numerix.array(trialValues == MASK)] = MASK
->>> print numerix.allclose(var, trialValues) #doctest: +LSM
+>>> print(numerix.allclose(var, trialValues)) #doctest: +LSM
 True
 """
 __docformat__ = 'restructuredtext'
@@ -119,4 +119,5 @@ __docformat__ = 'restructuredtext'
 if __name__ == '__main__':
     import fipy.tests.doctestPlus
     exec(fipy.tests.doctestPlus._getScript())
-    raw_input("finished")
+    input("finished")
+

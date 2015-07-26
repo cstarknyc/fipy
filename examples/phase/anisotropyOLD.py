@@ -225,7 +225,7 @@ the data and compares it with the `phase` variable.
 
 >>> import os
 >>> testData = numerix.loadtxt(os.path.splitext(__file__)[0] + '.gz')
->>> print phase.allclose(testData)
+>>> print(phase.allclose(testData))
 1
 """
 __docformat__ = 'restructuredtext'
@@ -234,5 +234,6 @@ if __name__ == '__main__':
     import fipy.tests.doctestPlus
     exec(fipy.tests.doctestPlus._getScript())
 
-    raw_input('finished')
+    input('finished')
+
 

@@ -106,7 +106,7 @@ where
 ...     if __name__ == '__main__':
 ...         viewer.plot()
 
->>> print C.allclose(CAnalytical, rtol=anstol, atol=anstol)
+>>> print(C.allclose(CAnalytical, rtol=anstol, atol=anstol))
 True
 
 """
@@ -116,4 +116,5 @@ if __name__ == '__main__':
     import fipy.tests.doctestPlus
     exec(fipy.tests.doctestPlus._getScript())
 
-    raw_input('finished')
+    input('finished')
+

@@ -412,9 +412,9 @@ We can confirm that the far-field phases have remained separated
 .. .. index:: allclose
 
 >>> X = mesh.faceCenters[0]
->>> print numerix.allclose(phase.faceValue[X.value==0], 1.0, rtol = 1e-5, atol = 1e-5)
+>>> print(numerix.allclose(phase.faceValue[X.value==0], 1.0, rtol = 1e-5, atol = 1e-5))
 True
->>> print numerix.allclose(phase.faceValue[X.value==L], 0.0, rtol = 1e-5, atol = 1e-5)
+>>> print(numerix.allclose(phase.faceValue[X.value==L], 0.0, rtol = 1e-5, atol = 1e-5))
 True
     
 and that the concentration fields have appropriately segregated into 
@@ -424,7 +424,7 @@ their equilibrium values in each phase
 >>> for Cj in interstitials + substitutionals:
 ...     equilibrium &= numerix.allclose(Cj.faceValue[X.value==0], Cj.S, rtol = 3e-3, atol = 3e-3).value
 ...     equilibrium &= numerix.allclose(Cj.faceValue[X.value==L], Cj.L, rtol = 3e-3, atol = 3e-3).value
->>> print equilibrium
+>>> print(equilibrium)
 True
 
 .. .. bibmissing:: /documentation/refs.bib
@@ -435,7 +435,7 @@ __docformat__ = 'restructuredtext'
 if __name__ == "__main__": 
     import fipy.tests.doctestPlus
     exec(fipy.tests.doctestPlus._getScript())
-    raw_input("finished")
+    input("finished")
 
 ## if __name__ == '__main__':
 ##     ## from fipy.tools.profiler.profiler import Profiler
@@ -451,3 +451,4 @@ if __name__ == "__main__":
 ## 	    
 ##     raw_input("finished")
 ## 
+

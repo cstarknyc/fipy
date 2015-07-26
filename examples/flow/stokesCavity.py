@@ -267,26 +267,26 @@ factor to relax the solution. This argument cannot be passed to
 .. index:: sweep, cacheMatrix, getMatrix, cacheRHSvector, getRHSvector
    
 >>> for sweep in range(sweeps):
-...
+... 
 ...     ## solve the Stokes equations to get starred values
 ...     xVelocityEq.cacheMatrix()
 ...     xres = xVelocityEq.sweep(var=xVelocity,
 ...                              underRelaxation=velocityRelaxation)
 ...     xmat = xVelocityEq.matrix
-...
+... 
 ...     yres = yVelocityEq.sweep(var=yVelocity,
 ...                              underRelaxation=velocityRelaxation)
-...
+... 
 ...     ## update the ap coefficient from the matrix diagonal
 ...     ap[:] = -xmat.takeDiagonal()
-...
+... 
 ...     ## update the face velocities based on starred values with the 
 ...     ## Rhie-Chow correction. 
 ...     ## cell pressure gradient
 ...     presgrad = pressure.grad
 ...     ## face pressure gradient
 ...     facepresgrad = _FaceGradVariable(pressure)
-...
+... 
 ...     velocity[0] = xVelocity.arithmeticFaceValue \
 ...          + contrvolume / ap.arithmeticFaceValue * \
 ...            (presgrad[0].arithmeticFaceValue-facepresgrad[0])
@@ -295,13 +295,13 @@ factor to relax the solution. This argument cannot be passed to
 ...            (presgrad[1].arithmeticFaceValue-facepresgrad[1])
 ...     velocity[..., mesh.exteriorFaces.value] = 0.
 ...     velocity[0, mesh.facesTop.value] = U
-...
+... 
 ...     ## solve the pressure correction equation
 ...     pressureCorrectionEq.cacheRHSvector()
 ...     ## left bottom point must remain at pressure 0, so no correction
 ...     pres = pressureCorrectionEq.sweep(var=pressureCorrection)
 ...     rhs = pressureCorrectionEq.RHSvector
-...
+... 
 ...     ## update the pressure using the corrected value
 ...     pressure.setValue(pressure + pressureRelaxation * pressureCorrection )
 ...     ## update the velocity using the corrected pressure
@@ -309,14 +309,14 @@ factor to relax the solution. This argument cannot be passed to
 ...                                                ap * mesh.cellVolumes)
 ...     yVelocity.setValue(yVelocity - pressureCorrection.grad[1] / \
 ...                                                ap * mesh.cellVolumes)
-...
+... 
 ...     if __name__ == '__main__':
 ...         if sweep%10 == 0:
-...             print 'sweep:',sweep,', x residual:',xres, \
+...             print('sweep:',sweep,', x residual:',xres, \
 ...                                  ', y residual',yres, \
 ...                                  ', p residual:',pres, \
-...                                  ', continuity:',max(abs(rhs))
-...
+...                                  ', continuity:',max(abs(rhs)))
+... 
 ...             viewer.plot()
 
 .. image:: cavity.*
@@ -326,11 +326,11 @@ factor to relax the solution. This argument cannot be passed to
 
 Test values in the last cell.
 
->>> print numerix.allclose(pressure.globalValue[...,-1], 162.790867927)
+>>> print(numerix.allclose(pressure.globalValue[...,-1], 162.790867927))
 1
->>> print numerix.allclose(xVelocity.globalValue[...,-1], 0.265072740929)
+>>> print(numerix.allclose(xVelocity.globalValue[...,-1], 0.265072740929))
 1
->>> print numerix.allclose(yVelocity.globalValue[...,-1], -0.150290488304)
+>>> print(numerix.allclose(yVelocity.globalValue[...,-1], -0.150290488304))
 1
 
 .. .. bibmissing:: /documentation/refs.bib
@@ -341,4 +341,5 @@ __docformat__ = 'restructuredtext'
 if __name__ == '__main__':
     import fipy.tests.doctestPlus
     exec(fipy.tests.doctestPlus._getScript(__name__))
-    raw_input('finished')
+    input('finished')
+

@@ -99,7 +99,7 @@ Compare the analaytical and numerical results:
 __docformat__ = 'restructuredtext'
 
 from fipy import *
-from adsorbingSurfactantEquation import AdsorbingSurfactantEquation
+from .adsorbingSurfactantEquation import AdsorbingSurfactantEquation
 
 # parameter values
 
@@ -131,7 +131,7 @@ bulkVar = CellVariable(mesh = mesh, value = cinf)
 
 surfactantVar = SurfactantVariable(distanceVar = distanceVar)
 
-from surfactantBulkDiffusionEquation import buildSurfactantBulkDiffusionEquation
+from .surfactantBulkDiffusionEquation import buildSurfactantBulkDiffusionEquation
 bulkEqn = buildSurfactantBulkDiffusionEquation(bulkVar,
                                           distanceVar = distanceVar,
                                           surfactantVar = surfactantVar,
@@ -175,11 +175,11 @@ if __name__ == "__main__":
         ## evaluate the analytical and numerical solution and plot
 
         theta = surfactantVar.interfaceVar[1]
-        print "theta:",theta
+        print("theta:",theta)
 
         ## do a time step
         surfEqn.solve(surfactantVar, dt = dt)
         bulkEqn.solve(bulkVar, dt = dt)
         currentTime += dt
 
-    raw_input("finished")
+    input("finished")

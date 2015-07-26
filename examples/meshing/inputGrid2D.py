@@ -91,4 +91,4 @@ def _run():
     
 if __name__ == '__main__':
     _run()
-    raw_input("finished")
+    input("finished")

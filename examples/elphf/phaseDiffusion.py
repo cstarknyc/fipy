@@ -76,7 +76,7 @@ We start with a binary substitutional system
 ...         self.equation = equation
 ...         CellVariable.__init__(self, mesh = mesh, value = value, 
 ...                               name = name, hasOld = hasOld)
-...
+... 
 ...     def copy(self):
 ...         return self.__class__(mesh = self.mesh, 
 ...                               value = self.value, 
@@ -127,7 +127,7 @@ and create the diffustion equations for the different species as in
 ...     for component in substitutionals + interstitials:
 ...         enthalpy += component * component.standardPotential
 ...         barrier += component * component.barrier
-...
+... 
 ...     mXi = -(30 * phase * (1 - phase) * enthalpy 
 ...             +  4 * (0.5 - phase) * barrier)
 ...     dmXidXi = (-60 * (0.5 - phase) * enthalpy + 4 * barrier)
@@ -158,7 +158,7 @@ and create the diffustion equations for the different species as in
 ...         Cj.equation = (TransientTerm() 
 ...                        == DiffusionTerm(coeff=Cj.diffusivity)
 ...                        + PowerLawConvectionTerm(coeff=convectionCoeff))
-...
+... 
 ...     for Cj in interstitials:
 ...         phaseTransformation = (pPrime(phase.harmonicFaceValue) \
 ...             * Cj.standardPotential \
@@ -230,7 +230,7 @@ we confirm that the far-field phases have remained separated
 and that the solute concentration field has appropriately segregated into 
 solute-rich and solute-poor phases.
 
->>> print numerix.allclose(substitutionals[0](((0.,L),)), (0.7, 0.3), rtol = 2e-3, atol = 2e-3)
+>>> print(numerix.allclose(substitutionals[0](((0.,L),)), (0.7, 0.3), rtol = 2e-3, atol = 2e-3))
 1
 
 The same system of equations can model a quaternary substitutional system as 
@@ -414,7 +414,7 @@ __docformat__ = 'restructuredtext'
 if __name__ == "__main__": 
     import fipy.tests.doctestPlus
     exec(fipy.tests.doctestPlus._getScript())
-    raw_input("finished")
+    input("finished")
 
 ## if __name__ == '__main__':
 ##     ## from fipy.tools.profiler.profiler import Profiler
@@ -430,3 +430,4 @@ if __name__ == "__main__":
 ## 	    
 ##     raw_input("finished")
 ## 
+
