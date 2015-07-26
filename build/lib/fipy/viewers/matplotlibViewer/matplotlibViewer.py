@@ -155,7 +155,11 @@ class AbstractMatplotlibViewer(AbstractViewer):
         
         pylab.ion()
         
-        pylab.show(block=False)
+        # In Jupyter,IPython notebooks (version 3 anyway) %matplotlib inline does not support "block"
+        try:
+            pylab.show(block=False)
+        except:
+            pylab.show()
 
         if filename is not None:
             pylab.savefig(filename)
