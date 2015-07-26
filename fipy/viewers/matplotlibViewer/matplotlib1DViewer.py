@@ -90,7 +90,10 @@ class Matplotlib1DViewer(AbstractMatplotlibViewer):
             self.lines = [self.axes.plot(*datum) for datum in self._data]
 
         if legend is not None:
-            self.axes.legend([var.name for var in self.vars], loc=legend)
+#             self.axes.legend([var.name for var in self.vars], loc=legend)
+            # CPS mods
+            self.axes.legend([var.name for var in self.vars], loc=legend, frameon=True,
+                             handletextpad=0, borderpad=0.15)
 
         self.axes.set_xlim(xmin=self._getLimit('xmin'),
                            xmax=self._getLimit('xmax'))
