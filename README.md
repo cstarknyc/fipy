@@ -1,7 +1,7 @@
 # fipy
 Python3 version of FiPy (develop), a Finite Volume PDE solver
 
-This is a fork of the development branch (as of 2015/07/26) of FiPy migrated to Python 3.x using 2to3. 
+This is a fork of the development branch (as of 2015/07/26) of FiPy migrated to Python 3.x using 2to3. Please refer to the NIST repo for the official version.
 
 Very little else has been changed besides a bug fix in the matplotlib viewer to ensure it works 
 in an IPython notebook (turned off "block"). I also tweaked the legend padding.
