@@ -12,7 +12,7 @@
   <body>
     <section class="page-header">
       <h1 class="project-name">FiPy for Python 3</h1>
-      <h2 class="project-tagline">Python3.x version of FiPy (develop), a finite volume PDE solver</h2>
+      <h2 class="project-tagline">Python3.x migration of FiPy (develop), a finite volume PDE solver</h2>
       <a href="https://github.com/cstarknyc/fipy" class="btn">View on GitHub</a>
       <a href="https://github.com/cstarknyc/fipy/zipball/master" class="btn">Download .zip</a>
       <a href="https://github.com/cstarknyc/fipy/tarball/master" class="btn">Download .tar.gz</a>
@@ -20,7 +20,16 @@
 
     <section class="main-content">
       <h3> Please refer to <a href="http://www.ctcms.nist.gov/fipy/">the main FiPy site</a></a> for the real deal</h3>. 
-      This is a fork of the develop branch of <a href="https://github.com/usnistgov/fipy">FiPy</a>.
+      
+      <p>This is a fork of the develop branch of <a href="https://github.com/usnistgov/fipy">FiPy</a> migrated using "2to3" 
+      to work with Python 3.x. It has been tested with Python 3.4 on MacOSX.</p>
+      
+      <p>When running <i>python setup.py install</i> you'll get error reports warning that the absence of the <i>pysparse</i>
+      will break FiPy. This is not true - it works just fine without. </p>
+      
+      <p>However, make sure you have <a href="http://geuz.org/gmsh/#Download">Gmsh</a> installed before installing FiPy. 
+      It is essential.</p>
+      
 
 
 
